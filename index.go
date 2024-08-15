@@ -17,7 +17,8 @@ func main() {
 		fmt.Print(err.Error())
 		os.Exit(1)
 	}
-
+	var user_num int
+	fmt.Scan(&user_num)
 	responseData, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		log.Fatal(err)
@@ -29,19 +30,21 @@ func main() {
 	fmt.Println(responseObject.Name)
 	fmt.Println(len(responseObject.Pokemon))
 
-	for _, pokemon := range responseObject.Pokemon {
-		fmt.Println(pokemon.Species.Name)
-	}
+	fmt.Println(responseObject.Pokemon[user_num].Species.Name)
+	fmt.Println(responseObject.Pokemon[user_num].Ptype)
+
 }
 
 type Response struct {
 	Name    string    `json:"name"`
 	Pokemon []Pokemon `json:"pokemon_entries"`
+	Ptype   string    `json:"type_name"`
 }
 
 type Pokemon struct {
 	EntryNo int            `json:"entry_number"`
 	Species PokemonSpecies `json:"pokemon_species"`
+	Ptype   string         `json:"type_name"`
 }
 
 type PokemonSpecies struct {
