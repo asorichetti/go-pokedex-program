@@ -12,7 +12,7 @@ import (
 func main() {
 	fmt.Println("Hello, this will be a GoLang Pokedex Application to serve up pokemon based on user input, this statement is temporary")
 	response, err := http.Get("http://pokeapi.co/api/v2/pokedex/hoenn/")
-	fmt.Println("Please enter a pokedex number of any pokemon you want information on")
+	fmt.Println("Please enter a pokedex number of any pokemon you want information on (Range from 1 to 202)")
 	if err != nil {
 		fmt.Print(err.Error())
 		os.Exit(1)
@@ -30,8 +30,8 @@ func main() {
 	fmt.Println(responseObject.Name)
 	fmt.Println(len(responseObject.Pokemon))
 
-	fmt.Println(responseObject.Pokemon[user_num].Species.Name)
-	fmt.Println(responseObject.Pokemon[user_num].Ptype)
+	fmt.Println(responseObject.Pokemon[user_num-1].Species.Name)
+	fmt.Println(responseObject.Pokemon[user_num-1].Ptype)
 
 }
 
