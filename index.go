@@ -12,7 +12,7 @@ import (
 func main() {
 	fmt.Println("Hello, this will be a GoLang Pokedex Application to serve up pokemon based on user input, this statement is temporary")
 	response, err := http.Get("http://pokeapi.co/api/v2/pokedex/hoenn/")
-
+	fmt.Println("Please enter a pokedex number of any pokemon you want information on")
 	if err != nil {
 		fmt.Print(err.Error())
 		os.Exit(1)
