@@ -28,7 +28,6 @@ func main() {
 	json.Unmarshal(responseData, &responseObject)
 
 	fmt.Println(responseObject.Name)
-	fmt.Println(len(responseObject.Pokemon))
 
 	fmt.Println(responseObject.Pokemon[user_num-1].Species.Name)
 	fmt.Println(responseObject.Pokemon[user_num-1].Ptype)
